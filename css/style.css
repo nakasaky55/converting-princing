@@ -1,0 +1,34 @@
+.display-value {
+  justify-content: center;
+  color: blue;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.container {
+  padding-top: 20px;
+}
+
+#your-amount {
+  color: red;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#converted-value {
+  color: blue;
+  font-size: 30px;
+  font-weight: bold;
+}
+h1 {
+  font-size: 72px;
+  background: -webkit-linear-gradient(rgb(0, 0, 0), rgb(241, 2, 2),  rgb(238, 255, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.card-body p {
+    font-weight: bold;
+    font-size: 42px;
+}

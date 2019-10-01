@@ -2,7 +2,7 @@
 
 Created with love by: `Nguyen Anh khoa`
 
-View online at: [https://keen-lichterman-d868f3.netlify.com/](My site on netlify)
+View online at: [My site on netlify](https://keen-lichterman-d868f3.netlify.com/)
 
 ## User Stories
 

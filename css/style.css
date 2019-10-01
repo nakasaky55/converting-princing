@@ -22,13 +22,30 @@
 }
 h1 {
   font-size: 72px;
-  background: -webkit-linear-gradient(rgb(0, 0, 0), rgb(241, 2, 2),  rgb(238, 255, 0));
+  background: -webkit-linear-gradient(
+    rgb(0, 0, 0),
+    rgb(241, 2, 2),
+    rgb(238, 255, 0)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
 }
 
 .card-body p {
-    font-weight: bold;
-    font-size: 42px;
+  font-weight: bold;
+  font-size: 42px;
+}
+
+#current-value[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.badge-flag {
+  background-image: url('../img/vietnam.svg');
+  width: 100%;
+  height: 100%;
 }

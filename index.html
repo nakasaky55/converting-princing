@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="linear-color">Money Convertor</h1>
+      <h1 class="linear-color">Money Converter</h1>
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" for="inputGroupSelect01"
@@ -27,12 +27,15 @@
           id="currency-one"
           aria-label="Example select with button addon"
         >
-          <option value="vnd">VND</option>
+          <option  value="vnd">VND <span></span></option>
           <option value="usd">USD</option>
           <option value="krw">KWR</option>
           <option value="aud">AUD</option>
           <option value="eur">EUR</option>
         </select>
+        <div class="input-group-prepend">
+          <span class="badge badge-flag"></span>
+        </div>
       </div>
 
       <div class="input-group mb-3">
@@ -40,10 +43,6 @@
           <span class="input-group-text">Enter your amount</span>
         </div>
         <input class="form-control" type="number" id="current-value" />
-        <div class="input-group-prepend">
-          <button class="btn btn-success" id="increase">+</button>
-          <button class="btn btn-secondary" id="decrease">-</button>
-        </div>
       </div>
       <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -62,9 +61,9 @@
           <option value="aud">AUD</option>
           <option value="eur">EUR</option>
         </select>
-        <button class="btn btn-outline-secondary" id="call-convert">
+        <!-- <button class="btn btn-outline-secondary" id="call-convert">
           Convert
-        </button>
+        </button> -->
       </div>
     </div>
 

@@ -31,42 +31,26 @@ const exchangeRates = {
   }
 };
 
-// let amountVND = prompt("How much VND?");
+// document.getElementById("call-convert").addEventListener("click", mainFunction);
 
-document.getElementById("call-convert").addEventListener("click", function() {
-  if (checkInput()) {
-    convertCalculation();
-  } else {
-    document.getElementById("check-input").innerHTML =
-      "<span style='color:red'>Please enter a number</span>";
-    document.getElementById("converted-value").innerHTML = "";
-    document.getElementById("your-amount").innerHTML = "";
-  }
-});
+document
+  .getElementById("current-value")
+  .addEventListener("keypress", mainFunction);
+document
+  .getElementById("current-value")
+  .addEventListener("keyup", mainFunction);
 
-document.getElementById("increase").addEventListener("click", function() {
-  let inputVal = document.getElementById("current-value").value;
-  if(!isNaN(inputVal) || inputVal != "") document.getElementById("current-value").value = parseFloat(inputVal) + 1;
-  if (checkInput()) {
-    convertCalculation();
-  }
-});
+document
+  .getElementById("current-value")
+  .addEventListener("change", mainFunction);
 
-document.getElementById("decrease").addEventListener("click", function() {
-  let inputVal = document.getElementById("current-value").value;
-  if (!isNaN(inputVal) && inputVal != "") {
-    document.getElementById("current-value").value = parseFloat(inputVal) - 1;
-    let tempVal = document.getElementById("current-value").value;
-    if (checkInput()) {
-      convertCalculation();
-    } else {
-      document.getElementById("check-input").innerHTML =
-        "<span style='color:red'>Please enter a number bigger than 0</span>";
-      document.getElementById("converted-value").innerHTML = "";
-      document.getElementById("your-amount").innerHTML = "";
-    }
-  }
-});
+  document
+  .getElementById("currency-one")
+  .addEventListener("change", mainFunction);
+
+  document
+  .getElementById("currency-two")
+  .addEventListener("change", mainFunction);
 
 // let curr1 = prompt("Enter your curent curreny ");
 // let curr2 = prompt("Enter currency you want to exchange");
@@ -77,16 +61,23 @@ document.getElementById("decrease").addEventListener("click", function() {
 //   return (parseFloat(amountVND) * rate).toFixed(2);
 // }
 
-function convertCalculation() {
+function mainFunction() {
+
+  if (checkInput()) {
+    callApi();
+  } else {
+    printError();
+  }
+}
+
+function convertCalculation(curr1, curr2, rate_API) {
   let amount = document.getElementById("current-value").value;
-  let curr1 = document.getElementById("currency-one").value;
-  let curr2 = document.getElementById("currency-two").value;
-  let rate;
+  
 
   if (curr1 == curr2) {
     rate = 1;
   } else {
-    rate = exchangeRates[curr1][curr2];
+    rate = rate_API;
     // rate = callApi(curr1, curr2);
   }
 
@@ -102,11 +93,18 @@ function convertCalculation() {
 function checkInput() {
   let amount = document.getElementById("current-value").value;
 
-  if (isNaN(amount) || amount == "" || amount < 0) {
+  if (amount == "" || amount < 0) {
     return false;
   }
 
   return true;
+}
+
+function printError() {
+  document.getElementById("check-input").innerHTML =
+    "<span style='color:red'>Please enter a number equal or greater than 0</span>";
+  document.getElementById("converted-value").innerHTML = "";
+  document.getElementById("your-amount").innerHTML = "";
 }
 
 function formatCurrency(value, curr) {
@@ -118,7 +116,9 @@ function formatCurrency(value, curr) {
   return formartter.format(value);
 }
 
-async function callApi(curr1, curr2) {
+async function callApi() {
+  let curr1 = document.getElementById("currency-one").value;
+  let curr2 = document.getElementById("currency-two").value;
   let url =
     "https://free.currconv.com/api/v7/convert?q=" +
     curr1 +
@@ -128,11 +128,12 @@ async function callApi(curr1, curr2) {
   let result = await fetch(url);
   let json = await result.json();
   let currency = (curr1 + "_" + curr2).toUpperCase();
-  updateResults(json, currency);
+  let rateUpdate = json[currency];
+
+  convertCalculation(curr1, curr2, rateUpdate);
 }
 
 function updateResults(response, currency) {
-  console.log(response[currency]);
+  return response[currency];
 }
 
-callApi("usd", "vnd");

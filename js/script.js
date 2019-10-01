@@ -44,14 +44,19 @@ document
   .getElementById("current-value")
   .addEventListener("change", mainFunction);
 
-  document
+document
   .getElementById("currency-one")
   .addEventListener("change", mainFunction);
 
-  document
+document
   .getElementById("currency-two")
   .addEventListener("change", mainFunction);
 
+// document
+//   .getElementById("switch-currency")
+//   .addEventListener("click", function() {
+  
+//   });
 // let curr1 = prompt("Enter your curent curreny ");
 // let curr2 = prompt("Enter currency you want to exchange");
 
@@ -62,7 +67,6 @@ document
 // }
 
 function mainFunction() {
-
   if (checkInput()) {
     callApi();
   } else {
@@ -72,13 +76,11 @@ function mainFunction() {
 
 function convertCalculation(curr1, curr2, rate_API) {
   let amount = document.getElementById("current-value").value;
-  
 
   if (curr1 == curr2) {
     rate = 1;
   } else {
     rate = rate_API;
-    // rate = callApi(curr1, curr2);
   }
 
   let valueConverted = rate * amount;
@@ -136,4 +138,3 @@ async function callApi() {
 function updateResults(response, currency) {
   return response[currency];
 }
-

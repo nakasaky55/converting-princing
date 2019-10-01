@@ -11,76 +11,76 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <title>Money Converter</title>
   </head>
   <body>
-    <div class="container">
-      <h1 class="linear-color">Money Converter</h1>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01"
-            >Choose your currency</label
+    <div class="container-fluid">
+      <div class="container">
+        <h1 class="linear-color">Money Converter</h1>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01"
+              >Choose your currency</label
+            >
+          </div>
+          <select
+            class="custom-select"
+            id="currency-one"
+            aria-label="Example select with button addon"
           >
+            <option value="vnd">VND &#8363;</option>
+            <option value="usd">USD &#36;</option>
+            <option value="krw">KWR &#8361;</option>
+            <option value="aud">AUD &#8371;</option>
+            <option value="eur">EUR &#128;</option>
+          </select>
+          <div class="input-group-prepend">
+            <span class="badge badge-flag"></span>
+          </div>
         </div>
-        <select
-          class="custom-select"
-          id="currency-one"
-          aria-label="Example select with button addon"
-        >
-          <option  value="vnd">VND <span></span></option>
-          <option value="usd">USD</option>
-          <option value="krw">KWR</option>
-          <option value="aud">AUD</option>
-          <option value="eur">EUR</option>
-        </select>
-        <div class="input-group-prepend">
-          <span class="badge badge-flag"></span>
-        </div>
-      </div>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Enter your amount</span>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Enter your amount</span>
+          </div>
+          <input class="form-control" type="number" id="current-value" />
         </div>
-        <input class="form-control" type="number" id="current-value" />
-      </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01"
-            >Choose convert Currency</label
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01"
+              >Choose convert Currency</label
+            >
+          </div>
+          <select
+            class="custom-select"
+            id="currency-two"
+            aria-label="Example select with button addon"
           >
+            <option value="vnd">VND &#8363;</option>
+            <option value="usd">USD &#36;</option>
+            <option value="krw">KWR &#8361;</option>
+            <option value="aud">AUD &#8371;</option>
+            <option value="eur">EUR &#128;</option>
+          </select>
+          <!-- <button class="btn btn-outline-secondary" id="call-convert">
+            Convert
+          </button> -->
         </div>
-        <select
-          class="custom-select"
-          id="currency-two"
-          aria-label="Example select with button addon"
-        >
-          <option value="vnd">VND</option>
-          <option value="usd">USD</option>
-          <option value="krw">KWR</option>
-          <option value="aud">AUD</option>
-          <option value="eur">EUR</option>
-        </select>
-        <!-- <button class="btn btn-outline-secondary" id="call-convert">
-          Convert
-        </button> -->
-      </div>
-    </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-xs-12">
-          <div class="card text-center">
-            <div class="card-body">
-              <span id="your-amount"></span> is equal to
-              <span id="converted-value"></span>
-              <p id="check-input"></p>
+        <div class="row">
+          <div class="col-lg-12 col-xs-12">
+            <div class="card text-center">
+              <div class="card-body">
+                <span id="your-amount"></span> is equal to
+                <span id="converted-value"></span>
+                <p id="check-input"></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- <button id="switch-currency">Test</button> -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
